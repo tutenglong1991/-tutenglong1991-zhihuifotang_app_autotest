@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from appium import webdriver
 
+
 class TestConnectDevices:
     def setup(self):
         caps = {}
@@ -18,6 +19,8 @@ class TestConnectDevices:
 
     def teardown(self):
         pass
+# 测试mac上git提交
+
 
 if __name__ == "__main__":
     TestConnectDevices().setup()
