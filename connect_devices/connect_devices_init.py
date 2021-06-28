@@ -4,22 +4,28 @@ from appium import webdriver
 
 
 class TestConnectDevices:
+
     def setup(self):
-        caps = {}
-        caps["platformName"] = "android"
-        caps["deviceName"] = "YCYNW18207003632"
-        caps["appPackage"] = "com.atkjsz.smartcemetery"
-        caps["appActivity"] = "io.dcloud.PandoraEntryActivity"
-        # caps["appPackage"] = "com.tencent.mm"
-        # caps["appActivity"] = ".plugin.account.ui.LoginPasswordUI"
-        caps["onRest"] = "True" # onRest可避免app数据被重置，如可避免重复弹出登陆更新等弹窗等，可记录登陆状态
+        # android应用启动配置
+        caps = {"platformName": "android",
+                "deviceName": "127.0.0.1:62001",
+                "appPackage": "com.atkjsz.smartcemetery",
+                "appActivity": "io.dcloud.PandoraEntryActivity",
+                "onRest": True
+                }
+        # ios应用启动配置
+        # caps = {
+        #     "platformName": "ios",
+        #     "platformVersion": "14.5",
+        #     "deviceName": "iPhone 8",
+        #     "app": "绝对路径"
+        # }
         print(caps)
         driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", caps)
-        driver.implicitly_wait(5)
+        driver.implicitly_wait(3)
 
     def teardown(self):
         pass
-# 测试mac上git提交
 
 
 if __name__ == "__main__":
